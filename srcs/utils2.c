@@ -6,17 +6,16 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:10:17 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/12 20:16:43 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/17 22:07:42 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int get_max(t_stack *stack)
+int get_max(t_stack *stack) // Find the maximum value in stack 'a'
 {
-	int max;
+	int max = stack->content;
 
-	max = stack->content;
 	while (stack)
 	{
 		if (stack->content > max)
@@ -26,11 +25,10 @@ int get_max(t_stack *stack)
 	return (max);
 }
 
-int stack_len(t_stack *stack)
+int stack_len(t_stack *stack) // Find the length of the stack
 {
-	int len;
+	int len = 0;
 
-	len = 0;
 	while (stack)
 	{
 		len++;
@@ -39,7 +37,7 @@ int stack_len(t_stack *stack)
 	return (len);
 }
 
-void print_stack(t_stack *stack)
+void print_stack(t_stack *stack) // Print the stack
 {
 	while (stack)
 	{
@@ -48,7 +46,7 @@ void print_stack(t_stack *stack)
 	}
 }
 
-int check_sort_list(t_stack *stack)
+int check_sort_list(t_stack *stack) // Check if the stack is sorted
 {
 	while (stack->next)
 	{

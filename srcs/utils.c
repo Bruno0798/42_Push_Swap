@@ -6,13 +6,13 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:57:51 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/12 16:11:22 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/17 22:07:10 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void create_stack(t_stack **stack, int content)
+void create_stack(t_stack **stack, int content) // Create a new stack
 {
 	t_stack *new;
 
@@ -23,7 +23,7 @@ void create_stack(t_stack **stack, int content)
 	*stack = new;
 }
 
-void ft_add_next(t_stack **stack, int content)
+void ft_add_next(t_stack **stack, int content) // Add a new element to the end of the stack
 {
 	t_stack *new;
 	t_stack *temp;
@@ -43,7 +43,7 @@ void ft_add_next(t_stack **stack, int content)
 	}
 }
 
-void ft_free_stack(t_stack **stack)
+void ft_free_stack(t_stack **stack) // Free the stack
 {
 	t_stack *temp;
 
@@ -55,17 +55,16 @@ void ft_free_stack(t_stack **stack)
 	}
 }
 
-void error(void)
+void error(void) // Print "Error" and exit the program
 {
 	ft_printf("Error\n");
 	exit(0);
 }
 
-int get_min(t_stack *stack)
+int get_min(t_stack *stack) // Get the minimum value of the stack
 {
-	int min;
+	int min = stack->content; // Set the minimum value to the first element of the stack
 
-	min = stack->content;
 	while (stack)
 	{
 		if (stack->content < min)

@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:08:06 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/11 16:31:18 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/17 22:10:32 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 static int ft_isnum(char **num)
 {
 	int i;
-	int j;
+	int j = 0;
 
-	j = 0;
 	while (num[++j])
 	{
 		i = 0;
@@ -32,15 +31,14 @@ static int ft_isnum(char **num)
 
 static int ft_dup_check(char **argv)
 {
-	int i;
+	int i = 1; // Start at 1 to skip the program name
 	int j;
 
-	i = 1;
 	while (argv[i])
 	{
 		j = i + 1;
 		while (argv[j])
-			if (ft_strcmp(argv[i], argv[j++]) == 0)
+			if (ft_strcmp(argv[i], argv[j++]) == 0) // Compare the current number with the next numbers
 				return (0);
 		i++;
 	}
@@ -52,9 +50,9 @@ void ft_check_args(int argc, char **argv, t_stack *stack)
 	if (argc < 2)
 		error();
 
-	if (!ft_isnum(argv) || !ft_dup_check(argv))
+	if (!ft_isnum(argv) || !ft_dup_check(argv)) // Check if the arguments are numbers and if there are duplicates
 	{
-		ft_free_stack(&stack);
+		free_list(&stack);
 		error();
 	}
 }

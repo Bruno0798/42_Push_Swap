@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 19:33:16 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/12 22:35:24 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/17 15:55:28 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,4 +188,191 @@ void sort_four_less_than_four_elements_test()
 	assert(a->content == 2);
 	assert(a->next->content == 3);
 	assert(b == NULL);
+}
+
+//************************* 5 NUMBERS *************************//
+
+static void TEST_ASSERT_EQUAL(int expected, int actual)
+{
+	if (expected == actual)
+		printf("\033[32m[OK]\033[0m\n");
+	else
+		printf("\033[31m[KO]\033[0m\n");
+}
+
+// Sorts a stack of five elements in ascending order
+void sort_five_asc_order_test()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	ft_add_next(&a, 5);
+	ft_add_next(&a, 2);
+	ft_add_next(&a, 3);
+	ft_add_next(&a, 4);
+	ft_add_next(&a, 1);
+
+	sort_five(&a, &b);
+	ft_printf(" 5 2 3 4 1\n");
+
+	assert(a->content == 1);
+	assert(a->next->content == 2);
+	assert(a->next->next->content == 3);
+	assert(a->next->next->next->content == 4);
+	assert(a->next->next->next->next->content == 5);
+}
+
+// If the minimum value is at the top of the stack, pushes it to stack b and sorts the remaining four elements in stack a
+void sort_five_min_at_top_test()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	ft_add_next(&a, 1);
+	ft_add_next(&a, 5);
+	ft_add_next(&a, 2);
+	ft_add_next(&a, 3);
+	ft_add_next(&a, 4);
+
+	sort_five(&a, &b);
+	ft_printf(" 1 5 2 3 4\n");
+
+	assert(a->content == 1);
+	assert(a->next->content == 2);
+	assert(a->next->next->content == 3);
+	assert(a->next->next->next->content == 4);
+	assert(a->next->next->next->next->content == 5);
+}
+
+// If the maximum value is at the top of the stack, rotates the stack until the minimum value is at the top, pushes it to stack b and sorts the remaining four elements in stack a
+void sort_five_max_at_top_test()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	ft_add_next(&a, 4);
+	ft_add_next(&a, 3);
+	ft_add_next(&a, 2);
+	ft_add_next(&a, 5);
+	ft_add_next(&a, 1);
+
+	sort_five(&a, &b);
+	ft_printf(" 4 3 2 5 1\n");
+
+	assert(a->content == 1);
+	assert(a->next->content == 2);
+	assert(a->next->next->content == 3);
+	assert(a->next->next->next->content == 4);
+	assert(a->next->next->next->next->content == 5);
+}
+// sorts a stack of five elements in ascending order
+void test_sort_five_ascending_order()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	int arr[] = {4, 2, 5, 1, 3};
+	int expected[] = {1, 2, 3, 4, 5};
+	int i;
+
+	for (i = 0; i < 5; i++)
+	{
+		ft_add_next(&a, arr[i]);
+	}
+
+	sort_five(&a, &b);
+
+	for (i = 0; i < 5; i++)
+	{
+		TEST_ASSERT_EQUAL(expected[i], a->content);
+		a = a->next;
+	}
+}
+
+// correctly identifies the minimum value in the stack
+void test_sort_five_minimum_value()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	int arr[] = {4, 2, 5, 1, 3};
+	int expected[] = {1, 2, 3, 4, 5};
+	int i;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ft_add_next(&a, arr[i]);
+	}
+
+	sort_five(&a, &b);
+
+	for (i = 0; i < 5; i++)
+	{
+		TEST_ASSERT_EQUAL(expected[i], a->content);
+		a = a->next;
+	}
+}
+
+// rotates the stack until the minimum value is at the top
+void test_sort_five_rotate_until_minimum()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	int arr[] = {4, 2, 5, 1, 3};
+	int expected[] = {1, 2, 3, 4, 5};
+	int i;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ft_add_next(&a, arr[i]);
+	}
+
+	sort_five(&a, &b);
+
+	for (i = 0; i < 5; i++)
+	{
+		TEST_ASSERT_EQUAL(expected[i], a->content);
+		a = a->next;
+	}
+}
+
+// correctly handles a stack that is already sorted
+void test_sort_five_already_sorted()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	int arr[] = {1, 2, 3, 4, 5};
+	int expected[] = {1, 2, 3, 4, 5};
+	int i;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ft_add_next(&a, arr[i]);
+	}
+
+	sort_five(&a, &b);
+
+	for (i = 0; i < 5; i++)
+	{
+		TEST_ASSERT_EQUAL(expected[i], a->content);
+		a = a->next;
+	}
+}
+
+// pushes the minimum value to stack b
+void test_sort_five_push_minimum_to_b()
+{
+	t_stack *a = NULL;
+	t_stack *b = NULL;
+	int arr[] = {4, 2, 5, 1, 3};
+	int expected[] = {1, 2, 3, 4, 5};
+	int i;
+
+	for (int i = 0; i < 5; i++)
+	{
+		ft_add_next(&a, arr[i]);
+	}
+
+	sort_five(&a, &b);
+
+	for (i = 0; i < 5; i++)
+	{
+		TEST_ASSERT_EQUAL(expected[i], a->content);
+		a = a->next;
+	}
 }
