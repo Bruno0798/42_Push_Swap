@@ -6,18 +6,18 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:23:44 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/10 22:34:27 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/12 22:21:18 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void swap_stack(t_stack **stack, char list)
 {
 	int temp;
 
 	if (!*stack || !(*stack)->next)
-		free_list(stack);
+		return;
 	temp = (*stack)->content;
 	(*stack)->content = (*stack)->next->content;
 	(*stack)->next->content = temp;
@@ -29,8 +29,8 @@ void swap_stack(t_stack **stack, char list)
 
 void swap_both(t_stack **a, t_stack **b)
 {
-	swap_stack(a, 'a');
-	swap_stack(b, 'b');
+	swap_stack(a, ' ');
+	swap_stack(b, ' ');
 	ft_printf("ss\n");
 }
 
@@ -38,7 +38,7 @@ void push_stack(t_stack **from, t_stack **to, char list)
 {
 	t_stack *temp;
 
-	if (!*from)
+	if (!*from && !*to)
 		return;
 	temp = *from;
 	*from = (*from)->next;
@@ -71,8 +71,7 @@ void rotate_stack(t_stack **stack, char list)
 
 void rotate_both(t_stack **a, t_stack **b)
 {
-	rotate_stack(a, 'a');
-	rotate_stack(b, 'b');
+	rotate_stack(a, ' ');
+	rotate_stack(b, ' ');
 	ft_printf("rr\n");
 }
-

@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"libft.h": "c",
+		"ft_get_next_line.h": "c",
+		"ft_linked_lists.h": "c",
+		"ft_convert.h": "c",
+		"ft_checks.h": "c",
+		"push_swap.h": "c",
+		"ft_memory.h": "c",
+		"ft_str.h": "c"
+	}
+}

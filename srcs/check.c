@@ -6,11 +6,11 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:08:06 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/10 22:23:25 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/11 16:31:18 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int ft_isnum(char **num)
 {
@@ -47,11 +47,14 @@ static int ft_dup_check(char **argv)
 	return (1);
 }
 
-void ft_check_args(char **argv, t_stack *stack)
+void ft_check_args(int argc, char **argv, t_stack *stack)
 {
+	if (argc < 2)
+		error();
+
 	if (!ft_isnum(argv) || !ft_dup_check(argv))
 	{
-		ft_free_stack(stack);
+		ft_free_stack(&stack);
 		error();
 	}
 }
