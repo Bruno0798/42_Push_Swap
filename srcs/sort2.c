@@ -6,13 +6,75 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:01:27 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/13 20:56:03 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:14:23 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void sort_more(t_stack **a, t_stack **b)
+bool four_index(t_stack **a, t_stack **b, int index) // Index is the position of the minimum value in stack 'a'
 {
-	
+	if (index == 0)
+		push_stack(a, b, 'b'); // Push the minimum value to stack 'b'
+	if (index == 1)
+	{
+		rotate_stack(a, 'a');	   // Rotate the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	if (index == 2)
+	{
+		rotate_stack(a, 'a');	   // Rotate the stack
+		rotate_stack(a, 'a');	   // Rotate the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	if (index == 3)
+	{
+		reverse_stack(a, 'a');	   // Reverse the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	return (EXIT_FAILURE); // If the stack is not sorted, return
+}
+
+
+bool five_index(t_stack **a, t_stack **b, int index) // Index is the position of the minimum value in stack 'a'
+{
+	if (index == 0)
+		push_stack(a, b, 'b'); // Push the minimum value to stack 'b'
+	if (index == 1)
+	{
+		rotate_stack(a, 'a');	   // Rotate the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	if (index == 2)
+	{
+		rotate_stack(a, 'a');	   // Rotate the stack
+		rotate_stack(a, 'a');	   // Rotate the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	if (index == 3)
+	{
+		reverse_stack(a, 'a');	   // Reverse the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	if (index == 4)
+	{
+		reverse_stack(a, 'a');	   // Reverse the stack
+		reverse_stack(a, 'a');	   // Reverse the stack
+		if (check_sort_list(*a))   // Check if the stack is sorted
+			return (EXIT_SUCCESS); // If it is, return
+		push_stack(a, b, 'b');	   // Push the minimum value to stack 'b'
+	}
+	return (EXIT_FAILURE); // If the stack is not sorted, return
 }

@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:08:06 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/17 22:10:32 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/18 10:44:10 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void ft_check_args(int argc, char **argv, t_stack *stack)
 
 	if (!ft_isnum(argv) || !ft_dup_check(argv)) // Check if the arguments are numbers and if there are duplicates
 	{
-		free_list(&stack);
+		ft_free_stack(&stack);
 		error();
 	}
 }

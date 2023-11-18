@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:37:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/17 18:16:52 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:07:06 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,10 @@ void sort_three(t_stack **a)
 
 void sort_four(t_stack **a, t_stack **b)
 {
-	int min = get_min(*a); // Find the minimum value in stack 'a'
+	int min_index = get_min_index(a); // Find the minimum value in stack 'a'
 
-	// Rotate stack 'a' until the top element is equal to 'min'
-	while ((*a)->content != min)
-		rotate_stack(a, 'a');
-
-	push_stack(a, b, 'b'); // Push the top element of stack 'a' to stack 'b'
+	if (!(four_index(a, b, min_index)))
+		return;
 	sort_three(a);		   // Sort the remaining three elements in stack 'a'
 	push_stack(b, a, 'a'); // Push the top element of stack 'b' back to stack 'a'
 }

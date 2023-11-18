@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:10:17 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/17 22:07:42 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/18 18:44:57 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,18 @@ int check_sort_list(t_stack *stack) // Check if the stack is sorted
 		stack = stack->next;
 	}
 	return (1);
+}
+
+int get_min_index(t_stack **stack) // Find the minimum value in stack 'a'
+{
+	t_stack *temp = *stack;
+	int index = 0;
+	int min = get_min(*stack);
+
+	while (temp->content != min)
+	{
+		temp = temp->next;
+		index++;
+	}
+	return (index);
 }
