@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/18 16:43:48 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:19:06 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int main(void)
 		while (i < argc)
 			ft_add_next(&a, ft_atoi(argv[i++])); */
 
-	// sort_three_numbers();
+	sort_three_numbers();
 	sort_four_numbers();
-	// sort_five_numbers();
+	sort_five_numbers();
 
 	// sort(&a, &b);
 	/* 	write(1, "\n", 1);

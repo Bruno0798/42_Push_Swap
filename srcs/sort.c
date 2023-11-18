@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:37:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/18 19:07:06 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/18 19:22:19 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ void sort_three(t_stack **a)
 		rotate_stack(a, 'a');
 	}
 
-	// If the top element is not the min and the second element is not the max
-	// Swap the top two elements and reverse the stack
+	// If the top element is not the min and the second element is the max
 	else
 		reverse_stack(a, 'a');
 }
