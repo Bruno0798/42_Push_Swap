@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/19 13:01:09 by bsousa-d         ###   ########.fr       */
+/*   Created: 2023/11/19 13:11:36 by bsousa-d          #+#    #+#             */
+/*   Updated: 2023/11/19 13:27:49 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int main(int argc, char **argv)
+/* t_info a_nbr2move(t_stack *a, t_stack *b, t_info info_a)
 {
-	t_stack *a;
-	t_stack *b;
-	int i;
+	t_stack *temp;
+	t_info nbr2move;
+	int moves;
+	int cheaper_nbr;
 
-	a = NULL;
-	b = NULL;
-	i = 2;
-
-	ft_check_args(argc, argv, a);
-	create_stack(&a, ft_atoi(argv[1]));
-	while (i < argc)
-		ft_add_next(&a, ft_atoi(argv[i++]));
-
-	sort(&a, &b);
-	ft_free_stack(&a);
-	ft_free_stack(&b);
-
-	return 0;
-}
+	cheaper_nbr = 0;
+	temp = a;
+	info_a.movements = 0;
+	while (temp != NULL)
+	{
+		if (temp->content > get_max(b) || temp->content < get_min(b))
+			moves = min_max_moves(a, b, temp->content);
+	}
+} */

@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:37:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/18 19:22:19 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:04:04 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ void sort(t_stack **a, t_stack **b)
 	else if (len == 5)
 		sort_five(a, b); // Sort the stack with five elements
 
-	/* 	else
-			sort_more(a, b); */
+	else // If len is greater than 5, sort the stack with more than five elements
+		sort_more(a, b);
 }

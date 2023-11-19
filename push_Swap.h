@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/18 19:12:58 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/19 13:06:41 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 
 typedef struct s_stack
 {
-	long content;
-	struct s_stack *next;
+	long content;		  // The content of the stack
+	struct s_stack *next; // Pointer to the next element of the stack
 } t_stack;
+
+typedef struct info
+{
+	int movements;
+	int size;
+	long data;
+} t_info;
 
 void ft_check_args(int argc, char **argv, t_stack *stack);
 /**
