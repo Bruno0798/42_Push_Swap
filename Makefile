@@ -3,7 +3,7 @@ NAME = push_swap
 SRC_DIR = srcs
 OBJ_DIR = obj
 
-SRC = check.c moves.c moves2.c push_swap.c sort.c sort2.c utils.c utils2.c tests.c
+SRC = check.c moves.c moves2.c push_swap.c sort.c sort2.c sort3.c utils.c utils2.c tests.c
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 CC = gcc

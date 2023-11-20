@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:23:44 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/17 22:04:36 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/19 21:10:26 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void push_stack(t_stack **from, t_stack **to, char list) // Take the first eleme
 {
 	t_stack *temp;
 
-	if (!*from && !*to) // If both stacks are empty, do nothing
+	if (!*from && !to) // If both stacks are empty, do nothing
 		return;
 	temp = *from;
 	*from = (*from)->next;

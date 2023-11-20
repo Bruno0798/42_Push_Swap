@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/19 13:06:41 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:42:37 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,8 +211,50 @@ bool four_index(t_stack **a, t_stack **b, int index);
  */
 
 bool five_index(t_stack **a, t_stack **b, int index);
+/**
+ * Performs different operations on stack 'a' based on the value of the index.
+ * Pushes elements from stack 'a' to stack 'b' in certain cases.
+ * Returns EXIT_SUCCESS if stack 'a' is sorted after the operations, and EXIT_FAILURE otherwise.
+ *
+ * @param a - Pointer to the first stack
+ * @param b - Pointer to the second stack
+ * @param index - Integer representing the index value
+ * @return EXIT_SUCCESS if stack 'a' is sorted after the operations, EXIT_FAILURE otherwise
+ */
 
 int get_min_index(t_stack **stack);
+/**
+ * This function returns the index of the minimum value in stack 'a'.
+ *
+ * @param stack - Pointer to the first stack
+ * @return The index of the minimum value in stack 'a'
+ */
+
+void sort_more(t_stack **a, t_stack **b);
+/**
+ * This function sorts the list a with more than 100 numbers.
+ *
+ * @param a - Pointer to the first stack
+ * @param b - Pointer to the second stack
+ * @return None
+ */
+
+t_info a_nbr2move(t_stack *a, t_stack *b, t_info info_a);
+t_info b_target(t_stack *b, int data_a);
+void sort_out_min_max(t_stack **a, t_stack **b, int size);
+void sort_in_min_max(t_stack **a, t_stack **b, int size);
+void put_all_a(t_stack **a, t_stack **b);
+t_info b_target(t_stack *b, int data_a);
+int calc(int a, int b);
+int mv_calcs2(t_info info_a, t_info info_b);
+int mv_calcs(t_info info_a, t_info info_b);
+int get_index(t_stack *stack, int target);
+int out_min_max(t_stack *b, t_info info_a);
+void sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target);
+void ab_top(t_stack **a, t_stack **b, t_info nbr2sort, t_info target);
+void b_top(t_stack **b, t_info target);
+void a_top(t_stack **a, t_info nbr2sort);
+
 // ?? **************** TESTES **************** ?? //
 
 // todo **************** 3 NUMBERS **************** todo //
@@ -222,5 +264,7 @@ void sort_five(t_stack **a, t_stack **b);
 void sort_three_numbers();
 void sort_four_numbers();
 void sort_five_numbers();
+void sort_six_numbers();
+void sort_seven_numbers();
 
 #endif

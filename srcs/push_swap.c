@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/19 13:01:09 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:03:01 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,27 @@ int main(int argc, char **argv)
 	b = NULL;
 	i = 2;
 
-	ft_check_args(argc, argv, a);
-	create_stack(&a, ft_atoi(argv[1]));
-	while (i < argc)
-		ft_add_next(&a, ft_atoi(argv[i++]));
+	ft_check_args(argc, argv, a);			 // check if the args are valid
+	create_stack(&a, ft_atoi(argv[1]));		 // create the stack a
+	while (i < argc)						 // add the args to the stack a
+		ft_add_next(&a, ft_atoi(argv[i++])); // add the args to the stack a
 
-	sort(&a, &b);
-	ft_free_stack(&a);
-	ft_free_stack(&b);
+	sort(&a, &b);	// sort the stack a
+	print_stack(a); // print the stack a
+
+	ft_free_stack(&a); // free the stacks
+	ft_free_stack(&b); // free the stacks
 
 	return 0;
 }
+
+/* int main(void)
+{
+	// sort_three_numbers();
+	// sort_four_numbers();
+	// sort_five_numbers();
+	// sort_six_numbers();
+	// sort_seven_numbers();
+
+	return 0;
+} */

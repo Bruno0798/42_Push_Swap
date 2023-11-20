@@ -6,30 +6,30 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:08:06 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/18 10:44:10 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/19 16:33:41 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int ft_isnum(char **num)
+static int ft_isnum(char **num) // Check if the arguments are numbers
 {
 	int i;
 	int j = 0;
 
-	while (num[++j])
+	while (num[++j]) // Loop through the arguments
 	{
 		i = 0;
-		if (num[j][0] == '-')
+		if (num[j][0] == '-') // If the number is negative, skip the first character
 			i++;
-		while (num[j][i])
-			if (!ft_isdigit(num[j][i++]))
-				return (0);
+		while (num[j][i])				  // Loop through the characters of the number
+			if (!ft_isdigit(num[j][i++])) // Check if the character is a digit
+				return (0);				  // If not, return 0
 	}
-	return (1);
+	return (1); // If all the arguments are numbers, return 1
 }
 
-static int ft_dup_check(char **argv)
+static int ft_dup_check(char **argv) // Check if there are duplicates
 {
 	int i = 1; // Start at 1 to skip the program name
 	int j;
@@ -45,9 +45,9 @@ static int ft_dup_check(char **argv)
 	return (1);
 }
 
-void ft_check_args(int argc, char **argv, t_stack *stack)
+void ft_check_args(int argc, char **argv, t_stack *stack) // Check if the arguments are valid
 {
-	if (argc < 2)
+	if (argc < 2) // If there are no arguments, exit
 		error();
 
 	if (!ft_isnum(argv) || !ft_dup_check(argv)) // Check if the arguments are numbers and if there are duplicates

@@ -7,6 +7,10 @@
 		"ft_checks.h": "c",
 		"push_swap.h": "c",
 		"ft_memory.h": "c",
-		"ft_str.h": "c"
+		"ft_str.h": "c",
+		"array": "c",
+		"string": "c",
+		"string_view": "c",
+		"vector": "c"
 	}
 }

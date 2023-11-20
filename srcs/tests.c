@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 19:33:16 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/18 18:42:41 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/19 17:11:56 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,26 @@ void sort_five_numbers()
 	int expected[] = {1, 2, 3, 4, 5};
 
 	permute(arr, expected, 0, 4, true);
+}
+
+// Generates all possible permutations of an array of six numbers and sorts each one of them using the custom sorting algorithm
+// And checks if the sorted stack matches the expected array [1, 2, 3, 4, 5, 6]
+void sort_six_numbers()
+{
+
+	int arr[] = {1, 2, 3, 4, 5, 6};
+	int expected[] = {1, 2, 3, 4, 5, 6};
+
+	permute(arr, expected, 0, 5, true);
+}
+
+// Generates all possible permutations of an array of seven numbers and sorts each one of them using the custom sorting algorithm
+// And checks if the sorted stack matches the expected array [1, 2, 3, 4, 5, 6, 7]
+void sort_seven_numbers()
+{
+
+	int arr[] = {1, 2, 3, 4, 5, 6, 7};
+	int expected[] = {1, 2, 3, 4, 5, 6, 7};
+
+	permute(arr, expected, 0, 6, true);
 }
