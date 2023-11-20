@@ -6,26 +6,24 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:37:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 14:44:33 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:26:44 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void sort_two(t_stack **a)
+static void sort_two(t_stack **a) // Sort two numbers
 {
-	if ((*a)->content > (*a)->next->content)
-	{
+	if ((*a)->content > (*a)->next->content) // If the first number is bigger than the second one, swap them
 		swap_stack(a, 'a');
-	}
 }
 
-void sort_three(t_stack **a)
+void sort_three(t_stack **a) // Sort three numbers
 {
 	int min = get_min(*a);
 	int max = get_max(*a);
 
-	if (check_sort_list(*a))
+	if (check_sort_list(*a)) // If the list is already sorted,
 		return;
 
 	if ((*a)->content != max && (*a)->next->content == min) // 2 1 3
@@ -44,28 +42,24 @@ void sort_three(t_stack **a)
 		swap_stack(a, 'a');
 		rotate_stack(a, 'a');
 	}
-
 	else
 		reverse_stack(a, 'a');
 }
 
-void sort_four(t_stack **a, t_stack **b)
+void sort_four(t_stack **a, t_stack **b) // Sort four numbers
 {
-	int min_index = get_min_index(a);
-
-	if (!(four_index(a, b, min_index)))
+	if (!(four_index(a, b, get_min_index(a)))) // If the index of the minimum number is 0, do nothing
 		return;
 
 	sort_three(a);
 	push_stack(b, a, 'a');
 }
 
-void sort_five(t_stack **a, t_stack **b)
+void sort_five(t_stack **a, t_stack **b) // Sort five numbers
 {
-	int min = get_min(*a);
 
-	while ((*a)->content != min)
-		rotate_stack(a, 'a');
+	if (!(five_index(a, b, get_min_index(a)))) // If the index of the minimum number is 0, do nothing
+		return;
 
 	push_stack(a, b, 'b');
 	sort_four(a, b);

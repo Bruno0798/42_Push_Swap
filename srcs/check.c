@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:08:06 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 17:49:04 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:30:26 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static int ft_dup_check(char **argv) // Check if there are duplicates
 	int i = 1; // Start at 1 to skip the program name
 	int j;
 
-	while (argv[i])
+	while (argv[i]) // Loop through the arguments
 	{
 		j = i + 1;
-		while (argv[j])
+		while (argv[j])								// Loop through the next arguments
 			if (ft_strcmp(argv[i], argv[j++]) == 0) // Compare the current number with the next numbers
-				return (0);
+				return (0);							// If there is a duplicate, return 0
 		i++;
 	}
 	return (1);
@@ -48,11 +48,11 @@ static int ft_dup_check(char **argv) // Check if there are duplicates
 void ft_check_args(int argc, char **argv, t_stack *stack) // Check if the arguments are valid
 {
 	if (argc < 2) // If there are no arguments, exit
-		error();
+		exit(1);
 
 	if (!ft_isnum(argv) || !ft_dup_check(argv)) // Check if the arguments are numbers and if there are duplicates
 	{
-		ft_free_stack(&stack);
+		ft_free_stack(&stack); // Free the stack
 		error();
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 15:03:01 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:16:48 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int main(int argc, char **argv)
 	while (i < argc)						 // add the args to the stack a
 		ft_add_next(&a, ft_atoi(argv[i++])); // add the args to the stack a
 
-	sort(&a, &b);	// sort the stack a
-	print_stack(a); // print the stack a
+	sort(&a, &b); // sort the stack a
 
 	ft_free_stack(&a); // free the stacks
 	ft_free_stack(&b); // free the stacks
