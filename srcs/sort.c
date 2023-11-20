@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:37:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 18:26:44 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:34:29 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void sort_five(t_stack **a, t_stack **b) // Sort five numbers
 
 void sort(t_stack **a, t_stack **b)
 {
+	if (check_sort_list(*a)) // If the list is already sorted,
+		exit(1);
+
 	int len = stack_len(*a);
 
 	if (len == 2)
