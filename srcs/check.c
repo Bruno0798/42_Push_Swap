@@ -6,13 +6,13 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:08:06 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 18:30:26 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:07:58 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int ft_isnum(char **num) // Check if the arguments are numbers
+int ft_isnum(char **num) // Check if the arguments are numbers
 {
 	int i;
 	int j = 0;
@@ -29,7 +29,7 @@ static int ft_isnum(char **num) // Check if the arguments are numbers
 	return (1); // If all the arguments are numbers, return 1
 }
 
-static int ft_dup_check(char **argv) // Check if there are duplicates
+int ft_dup_check(char **argv) // Check if there are duplicates
 {
 	int i = 1; // Start at 1 to skip the program name
 	int j;

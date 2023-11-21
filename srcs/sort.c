@@ -6,13 +6,13 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:37:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 18:34:29 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/20 22:07:34 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void sort_two(t_stack **a) // Sort two numbers
+void sort_two(t_stack **a) // Sort two numbers
 {
 	if ((*a)->content > (*a)->next->content) // If the first number is bigger than the second one, swap them
 		swap_stack(a, 'a');
@@ -42,7 +42,7 @@ void sort_three(t_stack **a) // Sort three numbers
 		swap_stack(a, 'a');
 		rotate_stack(a, 'a');
 	}
-	else
+	else    
 		reverse_stack(a, 'a');
 }
 
