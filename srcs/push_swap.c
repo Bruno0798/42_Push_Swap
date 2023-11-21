@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 18:51:14 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/21 10:34:37 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main(int argc, char **argv)
 {
-	static int count = 0;
 	t_stack *a;
 	t_stack *b;
 	int i;
