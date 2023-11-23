@@ -6,16 +6,16 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:08:15 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 21:32:39 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/21 21:04:44 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void rotating_a(t_stack **a)
+void	rotating_a(t_stack **a)
 {
-	int size;
-	int position;
+	int	size;
+	int	position;
 
 	position = get_index(*a, get_min(*a));
 	size = stack_len(*a);
@@ -28,7 +28,7 @@ void rotating_a(t_stack **a)
 	}
 }
 
-void a_top(t_stack **a, t_info nbr2sort)
+void	a_top(t_stack **a, t_info nbr2sort)
 {
 	while ((*a)->content != nbr2sort.data)
 	{
@@ -39,7 +39,7 @@ void a_top(t_stack **a, t_info nbr2sort)
 	}
 }
 
-void b_top(t_stack **b, t_info target)
+void	b_top(t_stack **b, t_info target)
 {
 	while ((*b)->content != target.data)
 	{
@@ -50,22 +50,25 @@ void b_top(t_stack **b, t_info target)
 	}
 }
 
-void ab_top(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
+void	ab_top(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
 {
 	while ((*a)->content != nbr2sort.data && (*b)->content != target.data)
 	{
-		if (nbr2sort.movements > nbr2sort.size / 2 && target.movements > target.size / 2)
+		if (nbr2sort.movements > nbr2sort.size / 2
+			&& target.movements > target.size / 2)
 			reverse_both(a, b);
-		else if (nbr2sort.movements < nbr2sort.size / 2 && target.movements > target.size / 2)
+		else if (nbr2sort.movements < nbr2sort.size / 2
+			&& target.movements > target.size / 2)
 			rotate_stack(a, 'a');
-		else if (target.movements < target.size / 2 && nbr2sort.movements > nbr2sort.size / 2)
+		else if (target.movements < target.size / 2
+			&& nbr2sort.movements > nbr2sort.size / 2)
 			rotate_stack(b, 'b');
 		else
 			rotate_both(a, b);
 	}
 }
 
-void sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
+void	sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
 {
 	ab_top(a, b, nbr2sort, target);
 	if ((*a)->content == nbr2sort.data && (*b)->content != target.data)
@@ -75,9 +78,9 @@ void sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
 	push_stack(a, b, 'b');
 }
 
-void sort_out_min_max(t_stack **a, t_stack **b, int size)
+void	sort_out_min_max(t_stack **a, t_stack **b, int size)
 {
-	int position;
+	int	position;
 
 	position = get_index(*a, get_min(*a));
 	while ((*a)->content != get_min(*a))
@@ -90,11 +93,11 @@ void sort_out_min_max(t_stack **a, t_stack **b, int size)
 	push_stack(b, a, 'a');
 }
 
-void sort_in_min_max(t_stack **a, t_stack **b, int size)
+void	sort_in_min_max(t_stack **a, t_stack **b, int size)
 {
-	t_stack *temp_a;
-	int position;
-	int target;
+	t_stack	*temp_a;
+	int		position;
+	int		target;
 
 	target = get_max(*a);
 	temp_a = *a;
@@ -115,9 +118,9 @@ void sort_in_min_max(t_stack **a, t_stack **b, int size)
 	push_stack(b, a, 'a');
 }
 
-void put_all_a(t_stack **a, t_stack **b)
+void	put_all_a(t_stack **a, t_stack **b)
 {
-	int size;
+	int	size;
 
 	while (*b != NULL)
 	{
@@ -129,43 +132,45 @@ void put_all_a(t_stack **a, t_stack **b)
 	}
 }
 
-t_info b_target(t_stack *b, int data_a) // Finds the number to move from stack 'a' to stack 'b'
+t_info	b_target(t_stack *b, int data_a)
 {
-	t_stack *temp_b = b;
-	t_info target;
+	t_stack	*temp_b;
+	t_info	target;
 
-	if (data_a > get_max(b) || data_a < get_min(b)) // If the number is greater than the maximum or less than the minimum, move it to the top of the stack
+	temp_b = b;
+	if (data_a > get_max(b) || data_a < get_min(b))
 	{
 		target.data = get_max(b);
 		target.movements = get_index(b, target.data);
 		return (target);
 	}
-	else // If the number is between the maximum and the minimum, move it to the top of the stack
+	else
 		target.data = get_min(b);
 	while (temp_b != NULL)
 	{
-		if (data_a > temp_b->content) // If the number is greater than the current number in the stack, move it to the top of the stack
+		if (data_a > temp_b->content)
 		{
-			if (target.data < temp_b->content) // If the current number is greater than the previous number, update the target
+			if (target.data < temp_b->content)
 				target.data = temp_b->content;
 		}
 		temp_b = temp_b->next;
 	}
-	target.movements = get_index(b, target.data); // Get the number of movements to move the number to the top of the stack
-	return target;
+	target.movements = get_index(b, target.data);
+	return (target);
 }
 
-int calc(int a, int b) // Calculates the cheapest number of movements
+int	calc(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
 
-int mv_calcs2(t_info info_a, t_info info_b) // Calculates the cheapest number of movements
+int	mv_calcs2(t_info info_a, t_info info_b)
 {
-	int nbr_m = 0;
+	int	nbr_m;
 
+	nbr_m = 0;
 	if (info_a.movements >= info_a.size / 2)
 		nbr_m = info_a.size - info_a.movements;
 	else if (info_b.movements >= info_b.size / 2)
@@ -175,41 +180,47 @@ int mv_calcs2(t_info info_a, t_info info_b) // Calculates the cheapest number of
 	return (nbr_m);
 }
 
-int mv_calcs(t_info info_a, t_info info_b) // Calculates the cheapest number of movements
+int	mv_calcs(t_info info_a, t_info info_b)
 {
-	int nbr_m = 0;
+	int	nbr_m;
 
-	if (info_a.movements > 0 && info_b.movements > 0) // If both numbers are greater than 0, calculate the cheapest number of movements
+	nbr_m = 0;
+	if (info_a.movements > 0 && info_b.movements > 0)
 	{
-		if (info_a.movements >= info_a.size / 2 && info_b.movements >= info_b.size / 2) // If both numbers are greater than half of the stack, calculate the cheapest number of movements
-			nbr_m = calc(info_b.size - info_b.movements, info_a.size - info_a.movements);
-		else if (info_a.movements > info_a.size / 2 && info_b.movements < info_b.size / 2) // If one number is greater than half of the stack and the other is less than half of the stack, calculate the cheapest number of movements
+		if (info_a.movements >= info_a.size / 2
+			&& info_b.movements >= info_b.size / 2)
+			nbr_m = calc(info_b.size - info_b.movements, info_a.size
+					- info_a.movements);
+		else if (info_a.movements > info_a.size / 2
+			&& info_b.movements < info_b.size / 2)
 			nbr_m = (info_a.size - info_a.movements) + info_b.movements;
-		else if (info_b.movements > info_b.size / 2 && info_a.movements < info_a.size / 2) // If one number is greater than half of the stack and the other is less than half of the stack, calculate the cheapest number of movements
+		else if (info_b.movements > info_b.size / 2
+			&& info_a.movements < info_a.size / 2)
 			nbr_m = (info_b.size - info_b.movements) + info_a.movements;
 		else
 			nbr_m = calc(info_b.movements, info_a.movements);
 	}
 	else
-		nbr_m = mv_calcs2(info_a, info_b); // If one number is 0, calculate the cheapest number of movements
+		nbr_m = mv_calcs2(info_a, info_b);
 	return (++nbr_m);
 }
 
-int get_index(t_stack *stack, int target) // Get the number of movements to move the number to the top of the stack
+int	get_index(t_stack *stack, int target)
 {
-	int index = 0;
+	int	index;
 
+	index = 0;
 	while (stack->content != target)
 	{
 		stack = stack->next;
 		index++;
 	}
-	return index;
+	return (index);
 }
-int out_min_max(t_stack *b, t_info info_a)
+int	out_min_max(t_stack *b, t_info info_a)
 {
-	t_info info_b;
-	int target;
+	t_info	info_b;
+	int		target;
 
 	target = get_max(b);
 	info_b.size = stack_len(b);
@@ -217,11 +228,11 @@ int out_min_max(t_stack *b, t_info info_a)
 	return (mv_calcs(info_a, info_b));
 }
 
-int in_min_max(t_stack *b, int data_a, t_info info_a)
+int	in_min_max(t_stack *b, int data_a, t_info info_a)
 {
-	t_stack *temp_b;
-	t_info info_b;
-	int target;
+	t_stack	*temp_b;
+	t_info	info_b;
+	int		target;
 
 	temp_b = b;
 	target = get_min(b);
@@ -239,12 +250,12 @@ int in_min_max(t_stack *b, int data_a, t_info info_a)
 	return (mv_calcs(info_a, info_b));
 }
 
-t_info a_nbr2move(t_stack *a, t_stack *b, t_info info_a) // Find the number to move from stack 'a' to stack 'b'
+t_info	a_nbr2move(t_stack *a, t_stack *b, t_info info_a)
 {
-	t_stack *temp_a; // Temporary stack 'a'
-	t_info nbr2move; // Number to move from stack 'a' to stack 'b'
-	int moves;		 // Number of movements to move the number to the top of the stack
-	int cheaper_nbr; // Cheapest number of movements
+	t_stack	*temp_a;
+	t_info	nbr2move;
+	int		moves;
+	int		cheaper_nbr;
 
 	cheaper_nbr = 0;
 	temp_a = a;
@@ -267,27 +278,3 @@ t_info a_nbr2move(t_stack *a, t_stack *b, t_info info_a) // Find the number to m
 	return (nbr2move);
 }
 
-void sort_more(t_stack **a, t_stack **b) // Sort more than 5 numbers
-{
-	t_info info_a;	 // Information about stack 'a'
-	t_info nbr2sort; // Number to move from stack 'a' to stack 'b'
-	t_info target;	 // Number to move from stack 'b' to stack 'a'
-
-	if (check_sort_list(*a))
-		return;
-	push_stack(a, b, 'b');		 // Move the first number from stack 'a' to stack 'b'
-	push_stack(a, b, 'b');		 // Move the second number from stack 'a' to stack 'b'
-	info_a.size = stack_len(*a); // Get the size of stack 'a'
-	while (info_a.size > 3)		 // While the size of stack 'a' is greater than 3
-	{
-		nbr2sort = a_nbr2move(*a, *b, info_a); // Find the number to move from stack 'a' to stack 'b'
-		nbr2sort.size = stack_len(*a);		   // Get the size of stack 'a'
-		target = b_target(*b, nbr2sort.data);  // Find the number to move from stack 'b' to stack 'a'
-		target.size = stack_len(*b);		   // Get the size of stack 'b'
-		sort_numbers(a, b, nbr2sort, target);  // Move the numbers to the top of the stacks
-		info_a.size = stack_len(*a);		   // Get the size of stack 'a'
-	}
-	sort_three(a);
-	put_all_a(a, b);
-	rotating_a(a);
-}

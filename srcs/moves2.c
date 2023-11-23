@@ -6,21 +6,21 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:34:39 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 20:42:51 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:45:23 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void reverse_stack(t_stack **stack, char list) // Shift down all elements of a stack by 1, the last element becomes the first one
+void	reverse_stack(t_stack **stack, char list)
 {
-	t_stack *temp;
-	t_stack *last;
+	t_stack	*temp;
+	t_stack	*last;
 
-	if (!*stack || !(*stack)->next) // If the stack is empty or has only one element, do nothing
-		return;
+	if (!*stack || !(*stack)->next)
+		return ;
 	temp = *stack;
-	while (temp->next) // Loop through the stack until the last element
+	while (temp->next)
 	{
 		last = temp;
 		temp = temp->next;
@@ -34,21 +34,21 @@ void reverse_stack(t_stack **stack, char list) // Shift down all elements of a s
 		ft_printf("rrb\n");
 }
 
-void reverse_both(t_stack **a, t_stack **b) // Shift down all elements of both stacks by 1, the last element becomes the first one
+void	reverse_both(t_stack **a, t_stack **b)
 {
 	reverse_stack(a, ' ');
 	reverse_stack(b, ' ');
 	ft_printf("rrr\n");
 }
 
-void free_list(t_stack **stack) // Free the stack
+void	free_list(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	while (*stack)
 	{
-		temp = *stack;			 // Assign the value of '*stack' to 'temp'
-		*stack = (*stack)->next; // Move the pointer to the next element
-		free(temp);				 // Free the previous element
+		temp = *stack;
+		*stack = (*stack)->next;
+		free(temp);
 	}
 }

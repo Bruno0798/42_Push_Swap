@@ -6,16 +6,17 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:10:17 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 10:07:46 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:55:05 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int get_max(t_stack *stack) // Find the maximum value in stack 'a'
+int	get_max(t_stack *stack)
 {
-	int max = stack->content;
+	int	max;
 
+	max = stack->content;
 	while (stack)
 	{
 		if (stack->content > max)
@@ -25,10 +26,11 @@ int get_max(t_stack *stack) // Find the maximum value in stack 'a'
 	return (max);
 }
 
-int stack_len(t_stack *stack) // Find the length of the stack
+int	stack_len(t_stack *stack)
 {
-	int len = 0;
+	int	len;
 
+	len = 0;
 	while (stack)
 	{
 		len++;
@@ -37,7 +39,7 @@ int stack_len(t_stack *stack) // Find the length of the stack
 	return (len);
 }
 
-void print_stack(t_stack *stack) // Print the stack
+void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
@@ -46,7 +48,7 @@ void print_stack(t_stack *stack) // Print the stack
 	}
 }
 
-int check_sort_list(t_stack *stack) // Check if the stack is sorted
+int	check_sort_list(t_stack *stack)
 {
 	while (stack->next)
 	{
@@ -57,12 +59,15 @@ int check_sort_list(t_stack *stack) // Check if the stack is sorted
 	return (1);
 }
 
-int get_min_index(t_stack **stack) // Find the minimum value in stack 'a'
+int	get_min_index(t_stack **stack)
 {
-	t_stack *temp = *stack;
-	int index = 0;
-	int min = get_min(*stack);
+	t_stack	*temp;
+	int		index;
+	int		min;
 
+	temp = *stack;
+	index = 0;
+	min = get_min(*stack);
 	while (temp->content != min)
 	{
 		temp = temp->next;
