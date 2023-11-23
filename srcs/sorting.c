@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 21:32:14 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 14:40:35 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:05:11 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,23 @@ void	sort_three(t_stack **a)
 
 void	sort_four(t_stack **a, t_stack **b)
 {
-	if (!(four_index(a, b, get_min_index(a))))
+	if (check_sort_list(*a))
 		return ;
+	four_index(a, b, get_min_index(a));
 	sort_three(a);
-	push_stack(b, a, 'a');
+	push_stack(a, b, 'b');
 }
 
 void	sort_five(t_stack **a, t_stack **b)
 {
-	if (!(five_index(a, b, get_min_index(a))))
+	if (check_sort_list(*a))
 		return ;
-	
-	sort_four(a, b);
-	push_stack(a, b, 'b');
+	five_index(a, b, get_min_index(a));
+
+	if (check_sort_list(*a))
+		return ;
+	four_index(a, b, get_min_index(a));
+	sort_three(a);
+	push_stack(b, a, 'a');
 	push_stack(b, a, 'a');
 }

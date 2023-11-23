@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 14:38:42 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:06:05 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int argc, char **argv)
 	while (i < argc)
 		ft_add_next(&a, ft_atoi(argv[i++]));
 	sort(&a, &b);
-	print_stack(a);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
