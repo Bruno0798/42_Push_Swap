@@ -6,31 +6,31 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/20 22:52:52 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/21 23:10:01 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "./libft/includes/libft.h"
+# include "./libft/includes/libft.h"
 
 typedef struct s_stack
 {
-	long content;		  // The content of the stack
+	long content;         // The content of the stack
 	struct s_stack *next; // Pointer to the next element of the stack
-} t_stack;
+}			t_stack;
 
 typedef struct info
 {
-	int movements;
-	int size;
-	long data;
-} t_info;
+	int		movements;
+	int		size;
+	long	data;
+}			t_info;
 
 // *************************** STACK MANIPULATION *************************** //
 
-void swap_stack(t_stack **stack, char list);
+void		swap_stack(t_stack **stack, char list);
 /**
  * This function swaps the top two elements of the stack.
  *
@@ -40,7 +40,7 @@ void swap_stack(t_stack **stack, char list);
  * @return None
  */
 
-void swap_both(t_stack **a, t_stack **b);
+void		swap_both(t_stack **a, t_stack **b);
 /**
  * This function swaps the top two elements of both stacks.
  *
@@ -50,7 +50,7 @@ void swap_both(t_stack **a, t_stack **b);
  * @return None
  */
 
-void push_stack(t_stack **from, t_stack **to, char list);
+void		push_stack(t_stack **from, t_stack **to, char list);
 /**
  * This function takes the first element at the top of 'from' and puts it at the
  * top of 'to'.
@@ -62,7 +62,7 @@ void push_stack(t_stack **from, t_stack **to, char list);
  * @return None
  */
 
-void rotate_stack(t_stack **stack, char list);
+void		rotate_stack(t_stack **stack, char list);
 /**
  * This function shifts up all elements of the stack by 1.
  *
@@ -72,7 +72,7 @@ void rotate_stack(t_stack **stack, char list);
  * @return None
  */
 
-void rotate_both(t_stack **a, t_stack **b);
+void		rotate_both(t_stack **a, t_stack **b);
 /**
  * This function shifts up all elements of both stacks by 1.
  *
@@ -82,7 +82,7 @@ void rotate_both(t_stack **a, t_stack **b);
  * @return None
  */
 
-void reverse_stack(t_stack **stack, char list);
+void		reverse_stack(t_stack **stack, char list);
 /**
  * This function shifts down all elements of the stack by 1.
  *
@@ -92,7 +92,7 @@ void reverse_stack(t_stack **stack, char list);
  * @return None
  */
 
-void reverse_both(t_stack **a, t_stack **b);
+void		reverse_both(t_stack **a, t_stack **b);
 /**
  * This function shifts down all elements of both stacks by 1.
  *
@@ -104,7 +104,7 @@ void reverse_both(t_stack **a, t_stack **b);
 
 // *************************** STACK INFORMATION *************************** //
 
-int get_min(t_stack *stack);
+int			get_min(t_stack *stack);
 /**
  * Returns the minimum value in the stack.
  *
@@ -112,7 +112,7 @@ int get_min(t_stack *stack);
  * @return The minimum value in the stack.
  */
 
-int get_max(t_stack *stack);
+int			get_max(t_stack *stack);
 /**
  * Returns the maximum value in the stack.
  *
@@ -120,7 +120,7 @@ int get_max(t_stack *stack);
  * @return The maximum value in the stack.
  */
 
-int stack_len(t_stack *stack);
+int			stack_len(t_stack *stack);
 /**
  * Returns the length of the stack.
  *
@@ -130,7 +130,7 @@ int stack_len(t_stack *stack);
 
 // **************************** INPUT VALIDATION **************************** //
 
-void ft_check_args(int argc, char **argv, t_stack *stack);
+void		ft_check_args(int argc, char **argv, t_stack *stack);
 /**
  * This function ensures that there are at least two arguments,
  * and that all the arguments are valid numbers without any duplicates.
@@ -142,16 +142,25 @@ void ft_check_args(int argc, char **argv, t_stack *stack);
  * @return None
  */
 
-void error(void);
+int			ft_dup_check(char **argv);
 /**
- * This function prints "Error" and exits the program.
+ * This function checks if there are duplicates.
  *
- * @return None
+ * @param argv - an array of strings representing the command line arguments
+ * @return 1 if there are no duplicates, 0 otherwise
+ */
+
+int			ft_isnum(char **num);
+/**
+ * This function checks if the arguments are numbers.
+ *
+ * @param num - an array of strings representing the command line arguments
+ * @return 1 if the arguments are numbers, 0 otherwise
  */
 
 // *************************** SORTING FUNCTIONS *************************** //
 
-void sort(t_stack **a, t_stack **b);
+void		sort(t_stack **a, t_stack **b);
 /**
  * This function sorts the stack.
  *
@@ -161,7 +170,7 @@ void sort(t_stack **a, t_stack **b);
  * @return None
  */
 
-void sort_two(t_stack **a);
+void		sort_two(t_stack **a);
 /**
  * This function sorts two numbers.
  *
@@ -169,7 +178,7 @@ void sort_two(t_stack **a);
  * @return None
  */
 
-void sort_three(t_stack **a);
+void		sort_three(t_stack **a);
 /**
  * This function sorts three numbers.
  *
@@ -177,7 +186,7 @@ void sort_three(t_stack **a);
  * @return None
  */
 
-void sort_four(t_stack **a, t_stack **b);
+void		sort_four(t_stack **a, t_stack **b);
 /**
  * This function sorts four numbers.
  *
@@ -186,7 +195,7 @@ void sort_four(t_stack **a, t_stack **b);
  * @return None
  */
 
-void sort_five(t_stack **a, t_stack **b);
+void		sort_five(t_stack **a, t_stack **b);
 /**
  * This function sorts five numbers.
  *
@@ -195,7 +204,7 @@ void sort_five(t_stack **a, t_stack **b);
  * @return None
  */
 
-void sort_more(t_stack **a, t_stack **b);
+void		sort_more(t_stack **a, t_stack **b);
 /**
  * This function sorts the list a with more than 5 numbers.
  *
@@ -204,7 +213,7 @@ void sort_more(t_stack **a, t_stack **b);
  * @return None
  */
 
-void sort_out_min_max(t_stack **a, t_stack **b, int size);
+void		sort_out_min_max(t_stack **a, t_stack **b, int size);
 /**
  * This function sorts the list a with more than 100 numbers.
  *
@@ -214,7 +223,7 @@ void sort_out_min_max(t_stack **a, t_stack **b, int size);
  * @return None
  */
 
-void sort_in_min_max(t_stack **a, t_stack **b, int size);
+void		sort_in_min_max(t_stack **a, t_stack **b, int size);
 /**
  * This function sorts the list a with more than 100 numbers.
  *
@@ -224,7 +233,8 @@ void sort_in_min_max(t_stack **a, t_stack **b, int size);
  * @return None
  */
 
-void sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target);
+void		sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort,
+				t_info target);
 /**
  * This function sorts the list a with more than 100 numbers.
  *
@@ -235,7 +245,7 @@ void sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target);
  * @return None
  */
 
-void put_all_a(t_stack **a, t_stack **b);
+void		put_all_a(t_stack **a, t_stack **b);
 /**
  * This function sorts the list a with more than 100 numbers.
  *
@@ -244,18 +254,22 @@ void put_all_a(t_stack **a, t_stack **b);
  * @return None
  */
 
-void ab_top(t_stack **a, t_stack **b, t_info nbr2sort, t_info target);
+void		ab_top(t_stack **a, t_stack **b, t_info nbr2sort, t_info target);
 /**
- * Moves the top elements of stacks `a` and `b` to their respective target positions.
- * Uses the `rotate_stack`, `reverse_stack`, and `rotate_both` functions to perform the necessary rotations.
+
+	* Moves the top elements of stacks `a` and `b` to their respective target positions.
+ * Uses the `rotate_stack`, `reverse_stack`,
+	and `rotate_both` functions to perform the necessary rotations.
  *
  * @param a - A pointer to the stack `a`
  * @param b - A pointer to the stack `b`
- * @param nbr2sort - A structure containing information about the element to be moved from stack `a`
- * @param target - A structure containing information about the target position in stack `b`
+ * @param nbr2sort
+	- A structure containing information about the element to be moved from stack `a`
+ * @param target
+	- A structure containing information about the target position in stack `b`
  */
 
-void b_top(t_stack **b, t_info target);
+void		b_top(t_stack **b, t_info target);
 /**
  * Moves the top element of stack `b` to the desired target position.
  *
@@ -265,64 +279,76 @@ void b_top(t_stack **b, t_info target);
  * @return None.
  */
 
-void a_top(t_stack **a, t_info nbr2sort);
+void		a_top(t_stack **a, t_info nbr2sort);
 /**
- * Moves the top element of stack `a` to the desired position specified by `nbr2sort.data`.
+
+	* Moves the top element of stack `a` to the desired position specified by `nbr2sort.data`.
  *
  * @param a - A pointer to the stack `a` (passed by reference).
- * @param nbr2sort - A structure that holds the desired position (`nbr2sort.data`) and the number of movements required to reach that position (`nbr2sort.movements`).
+ * @param nbr2sort
+	- A structure that holds the desired position (`nbr2sort.data`) and the number of movements required to reach that position (`nbr2sort.movements`).
  *
  * @return None.
  */
 
 // ************************* MOVEMENT CALCULATIONS ************************* //
 
-t_info a_nbr2move(t_stack *a, t_stack *b, t_info info_a);
+t_info		a_nbr2move(t_stack *a, t_stack *b, t_info info_a);
 /**
  * This function finds the cheapest number to move from stack 'a' to stack 'b'.
  *
  * @param a - Pointer to the first stack
  * @param b - Pointer to the second stack
  * @param info_a - Structure with information about the number to move
- * @return The number of movements needed to move the number to the top of stack 'a'
+
+	* @return The number of movements needed to move the number to the top of stack 'a'
  */
 
-t_info b_target(t_stack *b, int data_a);
+t_info		b_target(t_stack *b, int data_a);
 /**
- * This function returns the number of movements needed to move the number to the top of stack 'b'.
+	* This function returns the number of movements needed to move the number to the top of stack 'b'.
  *
  * @param b - Pointer to the second stack
  * @param data_a - The number to move
- * @return The number of movements needed to move the number to the top of stack 'b'
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
-int calc(int a, int b);
+int			calc(int a, int b);
 /**
- * This function calculates the number of movements needed to move the number to the top of stack 'b'.
+
+	* This function calculates the number of movements needed to move the number to the top of stack 'b'.
  *
  * @param a - The number of movements to move the number to the top of stack 'a'
  * @param b - The number of movements to move the number to the top of stack 'b'
- * @return The number of movements needed to move the number to the top of stack 'b'
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
-int mv_calcs2(t_info info_a, t_info info_b);
+int			mv_calcs2(t_info info_a, t_info info_b);
 /**
- * Calculates the number of movements needed to reach a target position in a stack.
+
+	* Calculates the number of movements needed to reach a target position in a stack.
  *
- * @param info_a - a structure containing information about stack A, including the number of movements and the size of the stack.
- * @param info_b - a structure containing information about stack B, including the number of movements and the size of the stack.
- * @return nbr_m - the number of movements needed to reach the target position in the stack.
+ * @param info_a - a structure containing information about stack A,
+	including the number of movements and the size of the stack.
+ * @param info_b - a structure containing information about stack B,
+	including the number of movements and the size of the stack.
+ * @return nbr_m
+	- the number of movements needed to reach the target position in the stack.
  */
 
-int mv_calcs(t_info info_a, t_info info_b);
+int			mv_calcs(t_info info_a, t_info info_b);
 /**
- * This function calculates the number of movements needed to move the number to the top of stack 'b'.
+
+	* This function calculates the number of movements needed to move the number to the top of stack 'b'.
  *
  * @param info_a - Structure with information about the number to move
  * @param info_b - Structure with information about the number to move
- * @return The number of movements needed to move the number to the top of stack 'b'
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
-int get_index(t_stack *stack, int target);
+int			get_index(t_stack *stack, int target);
 /**
  * This function returns the index of the target value in the stack.
  *
@@ -331,16 +357,18 @@ int get_index(t_stack *stack, int target);
  * @return The index of the target value in the stack
  */
 
-int out_min_max(t_stack *b, t_info info_a);
+int			out_min_max(t_stack *b, t_info info_a);
 /**
- * This function returns the number of movements needed to move the number to the top of stack 'b'.
+
+	* This function returns the number of movements needed to move the number to the top of stack 'b'.
  *
  * @param b - Pointer to the second stack
  * @param info_a - Structure with information about the number to move
- * @return The number of movements needed to move the number to the top of stack 'b'
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
-int check_sort_list(t_stack *stack);
+int			check_sort_list(t_stack *stack);
 /**
  * This function checks if the stack is sorted.
  *
@@ -349,31 +377,35 @@ int check_sort_list(t_stack *stack);
  * @return 1 if the stack is sorted, 0 otherwise
  */
 
-bool four_index(t_stack **a, t_stack **b, int index);
+bool		four_index(t_stack **a, t_stack **b, int index);
 /**
  * Performs different operations on stack 'a' based on the value of the index.
  * Pushes elements from stack 'a' to stack 'b' in certain cases.
- * Returns EXIT_SUCCESS if stack 'a' is sorted after the operations, and EXIT_FAILURE otherwise.
+ * Returns EXIT_SUCCESS if stack 'a' is sorted after the operations,
+	and EXIT_FAILURE otherwise.
  *
  * @param a - Pointer to the first stack
  * @param b - Pointer to the second stack
  * @param index - Integer representing the index value
- * @return EXIT_SUCCESS if stack 'a' is sorted after the operations, EXIT_FAILURE otherwise
+ * @return EXIT_SUCCESS if stack 'a' is sorted after the operations,
+	EXIT_FAILURE otherwise
  */
 
-bool five_index(t_stack **a, t_stack **b, int index);
+bool		five_index(t_stack **a, t_stack **b, int index);
 /**
  * Performs different operations on stack 'a' based on the value of the index.
  * Pushes elements from stack 'a' to stack 'b' in certain cases.
- * Returns EXIT_SUCCESS if stack 'a' is sorted after the operations, and EXIT_FAILURE otherwise.
+ * Returns EXIT_SUCCESS if stack 'a' is sorted after the operations,
+	and EXIT_FAILURE otherwise.
  *
  * @param a - Pointer to the first stack
  * @param b - Pointer to the second stack
  * @param index - Integer representing the index value
- * @return EXIT_SUCCESS if stack 'a' is sorted after the operations, EXIT_FAILURE otherwise
+ * @return EXIT_SUCCESS if stack 'a' is sorted after the operations,
+	EXIT_FAILURE otherwise
  */
 
-int get_min_index(t_stack **stack);
+int			get_min_index(t_stack **stack);
 /**
  * This function returns the index of the minimum value in stack 'a'.
  *
@@ -381,7 +413,7 @@ int get_min_index(t_stack **stack);
  * @return The index of the minimum value in stack 'a'
  */
 
-void rotating_a(t_stack **a);
+void		rotating_a(t_stack **a);
 /**
  * This function rotates the stack 'a' to the top.
  *
@@ -389,27 +421,31 @@ void rotating_a(t_stack **a);
  * @return None
  */
 
-t_info b_target(t_stack *b, int data_a);
+t_info		b_target(t_stack *b, int data_a);
 /**
- * This function returns the number of movements needed to move the number to the top of stack 'b'.
+
+	* This function returns the number of movements needed to move the number to the top of stack 'b'.
  *
  * @param b - Pointer to the second stack
  * @param data_a - The number to move
- * @return The number of movements needed to move the number to the top of stack 'b'
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
-int in_min_max(t_stack *b, int data_a, t_info info_a);
+int			in_min_max(t_stack *b, int data_a, t_info info_a);
 /**
- * This function returns the number of movements needed to move the number to the top of stack 'b'.
+
+	* This function returns the number of movements needed to move the number to the top of stack 'b'.
  *
  * @param b - Pointer to the second stack
  * @param data_a - The number to move
  * @param info_a - Structure with information about the number to move
- * @return The number of movements needed to move the number to the top of stack 'b'
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
 // ************************** AUXILIARY FUNCTIONS ************************** //
-void print_stack(t_stack *stack);
+void		print_stack(t_stack *stack);
 /**
  * This function prints the content of a stack.
  *
@@ -418,27 +454,15 @@ void print_stack(t_stack *stack);
  * @return None
  */
 
-// **************************** INPUT VALIDATION **************************** //
-
-int ft_dup_check(char **argv);
+void		error(void);
 /**
- * This function checks if there are duplicates.
+ * This function prints "Error" and exits the program.
  *
- * @param argv - an array of strings representing the command line arguments
- * @return 1 if there are no duplicates, 0 otherwise
+ * @return None
  */
 
-int ft_isnum(char **num);
-/**
- * This function checks if the arguments are numbers.
- *
- * @param num - an array of strings representing the command line arguments
- * @return 1 if the arguments are numbers, 0 otherwise
- */
-
-// STACK MANEGEMENT
 // **************************** STACK MANAGEMENT **************************** //
-void ft_free_stack(t_stack **stack);
+void		ft_free_stack(t_stack **stack);
 /**
  * This function frees the memory allocated for a stack.
  *
@@ -447,7 +471,7 @@ void ft_free_stack(t_stack **stack);
  * @return None
  */
 
-void create_stack(t_stack **stack, int content);
+void		create_stack(t_stack **stack, int content);
 /**
  * This function creates a stack.
  *
@@ -457,7 +481,7 @@ void create_stack(t_stack **stack, int content);
  * @return None
  */
 
-void ft_add_next(t_stack **stack, int content);
+void		ft_add_next(t_stack **stack, int content);
 /**
  * This function adds a new node to the stack.
  *
