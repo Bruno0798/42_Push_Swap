@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/21 23:10:01 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:23:23 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct s_stack
 {
-	long content;         // The content of the stack
-	struct s_stack *next; // Pointer to the next element of the stack
+	long content;
+	struct s_stack *next;
 }			t_stack;
 
 typedef struct info
@@ -126,6 +126,15 @@ int			stack_len(t_stack *stack);
  *
  * @param stack A pointer to the first element of the stack.
  * @return The length of the stack.
+ */
+
+int			check_sort_list(t_stack *stack);
+/**
+ * This function checks if the stack is sorted.
+ *
+ * @param stack - a pointer to a t_stack structure
+ *
+ * @return 1 if the stack is sorted, 0 otherwise
  */
 
 // **************************** INPUT VALIDATION **************************** //
@@ -324,6 +333,17 @@ int			calc(int a, int b);
 
 	* @return The number of movements needed to move the number to the top of stack 'b'
  */
+int			mv_calcs(t_info info_a, t_info info_b);
+/**
+
+	* This function calculates the number of movements needed to move the number to the top of stack 'b'.
+ *
+ * @param info_a - Structure with information about the number to move
+ * @param info_b - Structure with information about the number to move
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
+ */
+
 int			mv_calcs2(t_info info_a, t_info info_b);
 /**
 
@@ -335,17 +355,6 @@ int			mv_calcs2(t_info info_a, t_info info_b);
 	including the number of movements and the size of the stack.
  * @return nbr_m
 	- the number of movements needed to reach the target position in the stack.
- */
-
-int			mv_calcs(t_info info_a, t_info info_b);
-/**
-
-	* This function calculates the number of movements needed to move the number to the top of stack 'b'.
- *
- * @param info_a - Structure with information about the number to move
- * @param info_b - Structure with information about the number to move
-
-	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
 int			get_index(t_stack *stack, int target);
@@ -368,13 +377,16 @@ int			out_min_max(t_stack *b, t_info info_a);
 	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
-int			check_sort_list(t_stack *stack);
+int			in_min_max(t_stack *b, int data_a, t_info info_a);
 /**
- * This function checks if the stack is sorted.
+
+	* This function returns the number of movements needed to move the number to the top of stack 'b'.
  *
- * @param stack - a pointer to a t_stack structure
- *
- * @return 1 if the stack is sorted, 0 otherwise
+ * @param b - Pointer to the second stack
+ * @param data_a - The number to move
+ * @param info_a - Structure with information about the number to move
+
+	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
 bool		four_index(t_stack **a, t_stack **b, int index);
@@ -419,29 +431,6 @@ void		rotating_a(t_stack **a);
  *
  * @param a - a pointer to a t_stack structure
  * @return None
- */
-
-t_info		b_target(t_stack *b, int data_a);
-/**
-
-	* This function returns the number of movements needed to move the number to the top of stack 'b'.
- *
- * @param b - Pointer to the second stack
- * @param data_a - The number to move
-
-	* @return The number of movements needed to move the number to the top of stack 'b'
- */
-
-int			in_min_max(t_stack *b, int data_a, t_info info_a);
-/**
-
-	* This function returns the number of movements needed to move the number to the top of stack 'b'.
- *
- * @param b - Pointer to the second stack
- * @param data_a - The number to move
- * @param info_a - Structure with information about the number to move
-
-	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
 // ************************** AUXILIARY FUNCTIONS ************************** //

@@ -1,16 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort2.c                                            :+:      :+:    :+:   */
+/*   moves_calculations2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 15:01:27 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/21 21:04:55 by bsousa-d         ###   ########.fr       */
+/*   Created: 2023/11/23 12:36:45 by bsousa-d          #+#    #+#             */
+/*   Updated: 2023/11/23 12:41:49 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	get_index(t_stack *stack, int target)
+{
+	int	index;
+
+	index = 0;
+	while (stack->content != target)
+	{
+		stack = stack->next;
+		index++;
+	}
+	return (index);
+}
+
+int	out_min_max(t_stack *b, t_info info_a)
+{
+	t_info	info_b;
+	int		target;
+
+	target = get_max(b);
+	info_b.size = stack_len(b);
+	info_b.movements = get_index(b, target);
+	return (mv_calcs(info_a, info_b));
+}
+
+int	in_min_max(t_stack *b, int data_a, t_info info_a)
+{
+	t_stack	*temp_b;
+	t_info	info_b;
+	int		target;
+
+	temp_b = b;
+	target = get_min(b);
+	info_b.size = stack_len(b);
+	while (temp_b != NULL)
+	{
+		if (data_a > temp_b->content)
+		{
+			if (target < temp_b->content)
+				target = temp_b->content;
+		}
+		temp_b = temp_b->next;
+	}
+	info_b.movements = get_index(b, target);
+	return (mv_calcs(info_a, info_b));
+}
 
 bool	four_index(t_stack **a, t_stack **b, int index)
 {
@@ -61,29 +107,4 @@ bool	five_index(t_stack **a, t_stack **b, int index)
 		push_stack(a, b, 'b');
 	}
 	return (EXIT_FAILURE);
-}
-
-void	sort_more(t_stack **a, t_stack **b)
-{
-	t_info	info_a;
-	t_info	nbr2sort;
-	t_info	target;
-
-	if (check_sort_list(*a))
-		return ;
-	push_stack(a, b, 'b');
-	push_stack(a, b, 'b');
-	info_a.size = stack_len(*a);
-	while (info_a.size > 3)
-	{
-		nbr2sort = a_nbr2move(*a, *b, info_a);
-		nbr2sort.size = stack_len(*a);
-		target = b_target(*b, nbr2sort.data);
-		target.size = stack_len(*b);
-		sort_numbers(a, b, nbr2sort, target);
-		info_a.size = stack_len(*a);
-	}
-	sort_three(a);
-	put_all_a(a, b);
-	rotating_a(a);
 }

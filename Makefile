@@ -3,10 +3,10 @@ NAME = push_swap
 SRC_DIR = srcs
 OBJ_DIR = obj
 
-SRC = check.c moves.c moves2.c push_swap.c sort.c sort2.c sort3.c utils.c utils2.c
+SRC = auxiliary_functions.c input_validation.c moves_calculations.c moves_calculations2.c moves_calculations3.c push_swap.c sorting.c sorting2.c sorting3.c stack_information.c stack_management.c stack_manipulation.c stack_manipulation2.c
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -I libft/includes
 LDFLAGS = -Llibft -lft
 
@@ -36,3 +36,5 @@ fclean: clean
 	make -C $(LIBFT) fclean
 
 re: fclean all
+
+SILENT:

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_information.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 21:23:56 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/21 21:26:30 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:39:42 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,15 @@ int	stack_len(t_stack *stack)
 		stack = stack->next;
 	}
 	return (len);
+}
+
+int	check_sort_list(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->content > stack->next->content)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

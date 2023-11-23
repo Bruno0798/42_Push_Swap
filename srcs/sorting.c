@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 21:32:14 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/21 21:33:25 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 14:40:35 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	sort_five(t_stack **a, t_stack **b)
 {
 	if (!(five_index(a, b, get_min_index(a))))
 		return ;
-	push_stack(a, b, 'b');
+	
 	sort_four(a, b);
+	push_stack(a, b, 'b');
 	push_stack(b, a, 'a');
 }
