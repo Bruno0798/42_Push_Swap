@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 17:52:47 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:36:01 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -499,6 +499,6 @@ void				sort_four_numbers(void);
 void				sort_five_numbers(void);
 void				sort_six_numbers(void);
 void				sort_seven_numbers(void);
-void				sort_hundred_and_fifty(void);
+void				sort_hundred_and_fifty(int number);
 
 #endif
