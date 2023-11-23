@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_Swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 16:53:18 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:52:47 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,16 @@ int					ft_isnum(char **num);
  * @return 1 if the arguments are numbers, 0 otherwise
  */
 
-// *************************** SORTING FUNCTIONS *************************** //
+int					ft_max_min_int_number(char **argv);
+/**
+ * This function checks if the arguments are numbers.
+ *
+ * @param argv - an array of strings representing the command line arguments
+ * @return 1 if the arguments are numbers, 0 otherwise
+ */
+
+// *************************** SORTING FUNCTIONS ***************************
+//
 
 void				sort(t_stack **a, t_stack **b);
 /**
@@ -482,14 +491,14 @@ void				ft_add_next(t_stack **stack, int content);
  */
 
 // todo **************** 3 NUMBERS **************** todo //
-void sort_three(t_stack **a);
-void sort_four(t_stack **a, t_stack **b);
-void sort_five(t_stack **a, t_stack **b);
-void sort_three_numbers();
-void sort_four_numbers();
-void sort_five_numbers();
-void sort_six_numbers();
-void sort_seven_numbers();
-void sort_hundred_and_fifty();
+void				sort_three(t_stack **a);
+void				sort_four(t_stack **a, t_stack **b);
+void				sort_five(t_stack **a, t_stack **b);
+void				sort_three_numbers(void);
+void				sort_four_numbers(void);
+void				sort_five_numbers(void);
+void				sort_six_numbers(void);
+void				sort_seven_numbers(void);
+void				sort_hundred_and_fifty(void);
 
 #endif

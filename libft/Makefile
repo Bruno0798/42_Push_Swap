@@ -56,7 +56,7 @@ NAME	= 	libft.a
 
 _FILES += 	isalnum isalpha isascii isdigit isprint
 
-_FILES += 	atoi itoa tolower toupper
+_FILES += 	atoi atol itoa tolower toupper
 
 _FILES += 	bzero calloc memchr memcmp memcpy memmove memset
 
