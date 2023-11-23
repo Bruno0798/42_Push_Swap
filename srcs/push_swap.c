@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:56:50 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 15:06:05 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 15:57:38 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -26,7 +26,19 @@ int	main(int argc, char **argv)
 	while (i < argc)
 		ft_add_next(&a, ft_atoi(argv[i++]));
 	sort(&a, &b);
+	print_stack(a);
 	ft_free_stack(&a);
 	ft_free_stack(&b);
 	return (0);
+} */
+int main(void)
+{
+	 sort_three_numbers();
+	 sort_four_numbers();
+	  sort_five_numbers();
+	 sort_six_numbers();
+	sort_seven_numbers();
+	sort_hundred_and_fifty();
+
+	return 0;
 }

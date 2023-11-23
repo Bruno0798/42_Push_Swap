@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_Swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:04:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 15:02:48 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:53:18 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -390,7 +390,7 @@ int					in_min_max(t_stack *b, int data_a, t_info info_a);
 	* @return The number of movements needed to move the number to the top of stack 'b'
  */
 
-void				four_index(t_stack **a, t_stack **b, int index);
+bool				four_index(t_stack **a, t_stack **b, int index);
 /**
  * Performs different operations on stack 'a' based on the value of the index.
  * Pushes elements from stack 'a' to stack 'b' in certain cases.
@@ -404,7 +404,7 @@ void				four_index(t_stack **a, t_stack **b, int index);
 	EXIT_FAILURE otherwise
  */
 
-void				five_index(t_stack **a, t_stack **b, int index);
+bool				five_index(t_stack **a, t_stack **b, int index);
 /**
  * Performs different operations on stack 'a' based on the value of the index.
  * Pushes elements from stack 'a' to stack 'b' in certain cases.
@@ -480,4 +480,16 @@ void				ft_add_next(t_stack **stack, int content);
  *
  * @return None
  */
+
+// todo **************** 3 NUMBERS **************** todo //
+void sort_three(t_stack **a);
+void sort_four(t_stack **a, t_stack **b);
+void sort_five(t_stack **a, t_stack **b);
+void sort_three_numbers();
+void sort_four_numbers();
+void sort_five_numbers();
+void sort_six_numbers();
+void sort_seven_numbers();
+void sort_hundred_and_fifty();
+
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_calculations2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:36:45 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 15:05:53 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/23 16:56:40 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	in_min_max(t_stack *b, int data_a, t_info info_a)
 	return (mv_calcs(info_a, info_b));
 }
 
-void	four_index(t_stack **a, t_stack **b, int index)
+bool	four_index(t_stack **a, t_stack **b, int index)
 {
 	if (index == 0)
 		push_stack(a, b, 'b');
@@ -66,7 +66,7 @@ void	four_index(t_stack **a, t_stack **b, int index)
 	{
 		rotate_stack(a, 'a');
 		if (check_sort_list(*a))
-			return ;
+			return (EXIT_SUCCESS);
 		push_stack(a, b, 'b');
 	}
 	if (index == 2)
@@ -74,19 +74,20 @@ void	four_index(t_stack **a, t_stack **b, int index)
 		rotate_stack(a, 'a');
 		rotate_stack(a, 'a');
 		if (check_sort_list(*a))
-			return ;
+			return (EXIT_SUCCESS);
 		push_stack(a, b, 'b');
 	}
 	if (index == 3)
 	{
 		reverse_stack(a, 'a');
 		if (check_sort_list(*a))
-			return ;
+			return (EXIT_SUCCESS);
 		push_stack(a, b, 'b');
 	}
+	return (EXIT_FAILURE);
 }
 
-void	five_index(t_stack **a, t_stack **b, int index)
+bool	five_index(t_stack **a, t_stack **b, int index)
 {
 	if (index <= 2)
 		four_index(a, b, index);
@@ -95,14 +96,15 @@ void	five_index(t_stack **a, t_stack **b, int index)
 		reverse_stack(a, 'a');
 		reverse_stack(a, 'a');
 		if (check_sort_list(*a))
-			return ;
+			return (EXIT_SUCCESS);
 		push_stack(a, b, 'b');
 	}
 	if (index == 4)
 	{
 		reverse_stack(a, 'a');
 		if (check_sort_list(*a))
-			return ;
+			return (EXIT_SUCCESS);
 		push_stack(a, b, 'b');
 	}
+	return (EXIT_FAILURE);
 }

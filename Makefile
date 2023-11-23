@@ -3,7 +3,7 @@ NAME = push_swap
 SRC_DIR = srcs
 OBJ_DIR = obj
 
-SRC = auxiliary_functions.c input_validation.c moves_calculations.c moves_calculations2.c moves_calculations3.c push_swap.c sorting.c sorting2.c sorting3.c stack_information.c stack_management.c stack_manipulation.c stack_manipulation2.c
+SRC = tests.c auxiliary_functions.c input_validation.c moves_calculations.c moves_calculations2.c moves_calculations3.c push_swap.c sorting.c sorting2.c sorting3.c stack_information.c stack_management.c stack_manipulation.c stack_manipulation2.c
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 CC = cc
