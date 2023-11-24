@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 21:28:40 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 17:53:25 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:09:30 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	ft_check_args(int argc, char **argv, t_stack *stack)
 {
 	if (argc < 2)
 		exit(1);
-	if (!ft_isnum(argv) || !ft_dup_check(argv))
+	if (!ft_max_min_int_number(argv))
 	{
 		ft_free_stack(&stack);
 		error();
 	}
-	if (!ft_max_min_int_number(argv))
+	if (!ft_isnum(argv) || !ft_dup_check(argv))
 	{
 		ft_free_stack(&stack);
 		error();
@@ -37,7 +37,7 @@ int	ft_isnum(char **num)
 	while (num[++j])
 	{
 		i = 0;
-		if (num[j][0] == '-')
+		if ((num[j][0] == '-' || num[j][0] == '+') && num[j][1] != '\0')
 			i++;
 		while (num[j][i])
 			if (!ft_isdigit(num[j][i++]))
@@ -48,16 +48,19 @@ int	ft_isnum(char **num)
 
 int	ft_dup_check(char **argv)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 1;
-	while (argv[i])
+	while (argv[i + 1])
 	{
 		j = i + 1;
 		while (argv[j])
-			if (ft_strcmp(argv[i], argv[j++]) == 0)
-				return (0);
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+				error ();
+			j++;
+		}
 		i++;
 	}
 	return (1);

@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:31:02 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/12 16:34:54 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:08:47 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int ft_strcmp(const char *s1, const char *s2)
 {

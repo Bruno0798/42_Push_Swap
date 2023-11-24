@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 17:45:33 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 17:51:00 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/24 15:32:49 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,25 @@
 
 long	ft_atol(const char *str)
 {
-	long	result;
-	int		sign;
 	int		i;
+	long	c;
+	int		n;
 
-	result = 0;
-	sign = 1;
+	n = 1;
+	c = 0;
 	i = 0;
-	// Check for negative sign
-	if (str[0] == '-')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			n = n * -1;
 		i++;
 	}
-	// Iterate through each character of the string
-	while (str[i] != '\0')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		// Check if the character is a digit
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			// Check if the result exceeds the maximum long number
-			if (result > (LONG_MAX - (str[i] - '0')) / 10)
-			{
-				// Handle overflow
-				return ((sign == 1) ? LONG_MAX : LONG_MIN);
-			}
-			// Update the result
-			result = (result * 10) + (str[i] - '0');
-		}
-		else
-		{
-			// Invalid character, return 0
-			return (0);
-		}
+		c = (str[i] - '0') + (c * 10);
 		i++;
 	}
-	// Apply the sign
-	return (result * sign);
+	return (c * n);
 }
