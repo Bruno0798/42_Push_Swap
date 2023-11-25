@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_calculations3.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:45:13 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 14:25:09 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:29:48 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,15 @@ int	get_min_index(t_stack **stack)
 	return (index);
 }
 
-void	rotating_a(t_stack **a)
+/**
+ * Rotates the stack 'a' until the element with the minimum value is at the top.
+ * 
+ * @param a The stack to rotate.
+ */
+void rotating_a(t_stack **a)
 {
-	int	size;
-	int	position;
+	int size;
+	int position;
 
 	position = get_index(*a, get_min(*a));
 	size = stack_len(*a);
@@ -43,4 +48,4 @@ void	rotating_a(t_stack **a)
 		else
 			rotate_stack(a, 'a');
 	}
-}	
+}

@@ -6,13 +6,13 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:34:39 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/21 21:23:20 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:32:12 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	reverse_stack(t_stack **stack, char list)
+void	reverse_stack(t_stack **stack, char list) 
 {
 	t_stack	*temp;
 	t_stack	*last;
@@ -34,7 +34,7 @@ void	reverse_stack(t_stack **stack, char list)
 		ft_printf("rrb\n");
 }
 
-void	reverse_both(t_stack **a, t_stack **b)
+void	reverse_both(t_stack **a, t_stack **b) // 
 {
 	reverse_stack(a, ' ');
 	reverse_stack(b, ' ');

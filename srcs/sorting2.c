@@ -6,7 +6,7 @@
 /*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 21:33:43 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/21 23:09:40 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:45:32 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void	sort_more(t_stack **a, t_stack **b)
 	rotating_a(a);
 }
 
-void	sort_out_min_max(t_stack **a, t_stack **b, int size)
+void push_min_b(t_stack **a, t_stack **b, int size)
 {
-	int	position;
+	int position;
 
 	position = get_index(*a, get_min(*a));
 	while ((*a)->content != get_min(*a))
@@ -52,34 +52,39 @@ void	sort_out_min_max(t_stack **a, t_stack **b, int size)
 	push_stack(b, a, 'a');
 }
 
-void	sort_in_min_max(t_stack **a, t_stack **b, int size)
+void push_max_b(t_stack **a, t_stack **b, int size)
 {
-	t_stack	*temp_a;
-	int		position;
-	int		target;
-
-	target = get_max(*a);
-	temp_a = *a;
+	// Find the maximum value in stack A
+	int target = get_max(*a);
+	
+	// Iterate through stack A to find a value greater than the top of stack B
+	t_stack *temp_a = *a;
 	while (temp_a != NULL)
 	{
-		if (target > temp_a->content && temp_a->content > (*b)->content)
+		if (target > temp_a->content && temp_a->content > (*b)->content) // If the value is greater than the top of stack B
 			target = temp_a->content;
 		temp_a = temp_a->next;
 	}
-	position = get_index(*a, target);
+	
+	// Get the position of the target value in stack A
+	int position = get_index(*a, target);
+	
+	// Move the target value to the top of stack A
 	while ((*a)->content != target)
 	{
-		if (position > size / 2)
+		if (position > size / 2) // If the target value is in the second half of stack A
 			reverse_stack(a, 'a');
 		else
 			rotate_stack(a, 'a');
 	}
+	
+	// Push the target value from stack A to stack B
 	push_stack(b, a, 'a');
 }
 
-void	sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
+void sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
 {
-	ab_top(a, b, nbr2sort, target);
+	ab_top(a, b, nbr2sort, target); 
 	if ((*a)->content == nbr2sort.data && (*b)->content != target.data)
 		b_top(b, target);
 	else if ((*b)->content == target.data && (*a)->content != nbr2sort.data)
@@ -87,16 +92,16 @@ void	sort_numbers(t_stack **a, t_stack **b, t_info nbr2sort, t_info target)
 	push_stack(a, b, 'b');
 }
 
-void	put_all_a(t_stack **a, t_stack **b)
+void put_all_a(t_stack **a, t_stack **b)
 {
-	int	size;
+	int size;
 
 	while (*b != NULL)
 	{
 		size = stack_len(*b);
 		if ((*b)->content > get_max(*a) || (*b)->content < get_min(*a))
-			sort_out_min_max(a, b, size);
+			push_min_b(a, b, size);
 		else if ((*b)->content < get_max(*a) && (*b)->content > get_min(*a))
-			sort_in_min_max(a, b, size);
+			push_max_b(a, b, size);
 	}
 }

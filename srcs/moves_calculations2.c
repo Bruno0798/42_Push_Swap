@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves_calculations2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 12:36:45 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/23 16:56:40 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/25 17:27:12 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	out_min_max(t_stack *b, t_info info_a)
 	return (mv_calcs(info_a, info_b));
 }
 
-int	in_min_max(t_stack *b, int data_a, t_info info_a)
+int	in_min_max(t_stack *b, int data_a, t_info info_a) 
 {
 	t_stack	*temp_b;
 	t_info	info_b;
@@ -87,11 +87,11 @@ bool	four_index(t_stack **a, t_stack **b, int index)
 	return (EXIT_FAILURE);
 }
 
-bool	five_index(t_stack **a, t_stack **b, int index)
+bool five_index(t_stack **a, t_stack **b, int index)
 {
 	if (index <= 2)
 		four_index(a, b, index);
-	if (index == 3)
+	if (index == 3) 
 	{
 		reverse_stack(a, 'a');
 		reverse_stack(a, 'a');

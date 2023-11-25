@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   input_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsousa-d <bsousa-d@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsousa-d <bsousa-d@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 21:28:40 by bsousa-d          #+#    #+#             */
-/*   Updated: 2023/11/24 16:09:30 by bsousa-d         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:38:06 by bsousa-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_check_args(int argc, char **argv, t_stack *stack)
+void ft_check_args(int argc, char **argv, t_stack *stack)
 {
 	if (argc < 2)
 		exit(1);
